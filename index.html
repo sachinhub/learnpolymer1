@@ -55,6 +55,9 @@
             handleLogin : function(e) {
                 console.log('handleLogin', e.detail);
                 this.set('username',  e.detail.username);
+                this.$.loginreq.params = {};
+                this.$.loginreq.params.username = e.detail.username;
+                this.$.loginreq.params.password = e.detail.password;
                 this.$.loginreq.generateRequest()
                 this.$.pages.selectNext();
             },
