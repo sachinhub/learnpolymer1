@@ -17,10 +17,10 @@
 
     <dom-module id="pkg-app">
         <template>
-            <h2>Polymer Application</h2>
+            <h2>Polymer Application 1</h2>
             <iron-pages id="pages" selected="0">
                 <div>
-                    <login-polyform id="loginform" credentials="{{_user}}">
+                    <login-polyform id="loginform" on-login="handleLogin" credentials="{{_user}}">
                         <img avatar src="https://randomuser.me/api/portraits/med/men/93.jpg" />
                     </login-polyform>
                 </div>
@@ -42,15 +42,19 @@
             },
             attached : function () {
                 console.log('pkg-app ');
-                var app = this;
-                app.set('username', 'dummy');
-                this.$.loginform.addEventListener('login', function (e) {
-                    console.log('login', e.detail.username);
-                    console.log('login', e.detail.password);
+                //var app = this;
+                //this.$.loginform.addEventListener('login', function (e) {
+                //    console.log('login', e.detail.username);
+                //    console.log('login', e.detail.password);
                     // here we can validate using post, and in reponse we can change the page
-                    app.set('username',  e.detail.username);
-                    app.$.pages.selectNext();
-                })
+                //    app.set('username',  e.detail.username);
+                //    app.$.pages.selectNext();
+                //})
+            },
+            handleLogin : function(e) {
+                console.log('handleLogin', e.detail);
+                this.set('username',  e.detail.username);
+                this.$.pages.selectNext();
             }
         });
     </script>
