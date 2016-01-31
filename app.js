@@ -1,11 +1,13 @@
 var express = require('express');
 var app = express();
 
-app.use(express.static('client'));
+app.use(express.static('public'));
+
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+
 
 app.get('/', function(req, res){
-  console.log(__dirname);
-  res.sendfile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.post('/api/login', function(req, res){
