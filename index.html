@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html lang="">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning UI</title>
+    <link rel="manifest" href="manifest.json">
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/iron-pages/iron-pages.html">
+    <link rel="import" href="bower_components/login-polyform/login-polyform.html">
+</head>
+
+<body>
+    <pkg-app></pkg-app>
+
+    <dom-module id="pkg-app">
+        <template>
+            <h2>Polymer Application</h2>
+            <iron-pages id="pages" selected="0">
+                <div>
+                    <login-polyform id="loginform" credentials="{{_user}}">
+                        <img avatar src="https://randomuser.me/api/portraits/med/men/93.jpg" />
+                    </login-polyform>
+                </div>
+                <div>
+                    <h3>Welcome <span>[[username]]</span></h3>
+                </div>
+            </iron-pages>
+        </template>
+    </dom-module>
+
+    <script>
+        Polymer({
+            is: "pkg-app",
+            properties : {
+                username : {
+                    type : "string",
+                    value : ""
+                }
+            },
+            attached : function () {
+                console.log('pkg-app ');
+                var app = this;
+                app.set('username', 'dummy');
+                this.$.loginform.addEventListener('login', function (e) {
+                    console.log('login', e.detail.username);
+                    console.log('login', e.detail.password);
+                    // here we can validate using post, and in reponse we can change the page
+                    app.set('username',  e.detail.username);
+                    app.$.pages.selectNext();
+                })
+            }
+        });
+    </script>
+
+</body>
+
+</html>

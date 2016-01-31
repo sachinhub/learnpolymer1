@@ -1,0 +1,25 @@
+{
+  "name": "learnpolymer1",
+  "version": "0.0.0",
+  "authors": [
+    "Praveen Gulati <pkgulati@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-elements": "PolymerElements/paper-elements#~1.0.7",
+    "polymer": "Polymer/polymer#1.2.0",
+    "js-traverse": "https://github.com/substack/js-traverse.git#^0.6.6",
+    "iron-pages": "PolymerElements/iron-pages#1.0.0",
+    "login-polyform": "hourliert/login-polyform#^0.1.0"
+  },
+  "resolutions": {
+    "polymer": "1.2.0"
+  }
+}
