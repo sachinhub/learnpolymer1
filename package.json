@@ -1,0 +1,23 @@
+{
+  "name": "learnpolymer1",
+  "version": "1.0.0",
+  "description": "This app will show a login web component from https://github.com/hourliert/login-polyform\r and then will use iron pages just to show next page.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://pkgulati@gmail.com:flavone23@github.com/pkgulati/learnpolymer1.git"
+  },
+  "author": "pkgulati@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pkgulati/learnpolymer1/issues"
+  },
+  "homepage": "https://github.com/pkgulati/learnpolymer1#readme"
+}

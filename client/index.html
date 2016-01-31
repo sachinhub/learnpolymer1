@@ -10,6 +10,7 @@
     <link rel="import" href="bower_components/paper-input/paper-input.html">
     <link rel="import" href="bower_components/iron-pages/iron-pages.html">
     <link rel="import" href="bower_components/login-polyform/login-polyform.html">
+    <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
 </head>
 
 <body>
@@ -23,11 +24,19 @@
                     <login-polyform id="loginform" on-login="handleLogin" credentials="{{_user}}">
                         <img avatar src="https://randomuser.me/api/portraits/med/men/93.jpg" />
                     </login-polyform>
+
                 </div>
                 <div>
                     <h3>Welcome <span>[[username]]</span></h3>
                 </div>
             </iron-pages>
+            <iron-ajax id="loginreq"
+                url="http://localhost:3000/api/login"
+                handle-as="json"
+                method="POST"
+                on-response="handleResponse"
+                debounce-duration="300">
+            </iron-ajax>
         </template>
     </dom-module>
 
@@ -42,19 +51,15 @@
             },
             attached : function () {
                 console.log('pkg-app ');
-                //var app = this;
-                //this.$.loginform.addEventListener('login', function (e) {
-                //    console.log('login', e.detail.username);
-                //    console.log('login', e.detail.password);
-                    // here we can validate using post, and in reponse we can change the page
-                //    app.set('username',  e.detail.username);
-                //    app.$.pages.selectNext();
-                //})
             },
             handleLogin : function(e) {
                 console.log('handleLogin', e.detail);
                 this.set('username',  e.detail.username);
+                this.$.loginreq.generateRequest()
                 this.$.pages.selectNext();
+            },
+            handleResponse : function(e) {
+                console.log('handleResponse', e.detail.response);
             }
         });
     </script>
