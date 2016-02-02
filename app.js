@@ -17,6 +17,8 @@ app.get('/', function(req, res){
 
 app.post('/api/login', function(req, res){
   console.log(req.body);
+  console.log(req.body.username);
+  console.log(req.body.password);
   res.json({ loggedin: true, jtoken : 'ASD021312' });
 });
 
