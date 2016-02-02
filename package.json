@@ -4,6 +4,7 @@
   "description": "This app will show a login web component from https://github.com/hourliert/login-polyform\r and then will use iron pages just to show next page.",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.14.2",
     "express": "^4.13.4"
   },
   "devDependencies": {},

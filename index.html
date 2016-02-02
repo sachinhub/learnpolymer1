@@ -35,6 +35,7 @@
                 handle-as="json"
                 method="POST"
                 on-response="handleResponse"
+                content-type="application/json"
                 debounce-duration="300">
             </iron-ajax>
         </template>
@@ -55,9 +56,11 @@
             handleLogin : function(e) {
                 console.log('handleLogin', e.detail);
                 this.set('username',  e.detail.username);
-                this.$.loginreq.params = {};
-                this.$.loginreq.params.username = e.detail.username;
-                this.$.loginreq.params.password = e.detail.password;
+                var body = {};
+                body.username = e.detail.username;
+                body.password = e.detail.password;
+                this.$.loginreq.body = body;
+                console.log(this.$.loginreq.body);
                 this.$.loginreq.generateRequest()
                 this.$.pages.selectNext();
             },
